@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teddy Apology</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#ffeef5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    width:400px;
+    text-align:center;
+}
+
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+#teddy{
+    font-size:70px;
+    background:pink;
+    border-radius:50%;
+    width:90px;
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#question{
+    color:#ff4d88;
+    font-size:20px;
+    text-align:left;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d88;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff1a66;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="top">
+        <div id="teddy">🧸</div>
+        <div id="question">Did I hurt you in the morning?</div>
+    </div>
+
+    <div id="buttons">
+        <button onclick="nextStep()">Yes</button>
+        <button onclick="nextStep()">yes</button>
+    </div>
+</div>
+
+<script>
+let questions = [
+    "Did I hurt you in the morning?",
+    "Are you still upset?",
+    "Can Teddy bear be forgiven?",
+    "I’m sorry, please don’t be upset.",
+    "Have you forgiven me?"
+];
+
+let step = 0;
+
+function nextStep(){
+    step++;
+
+    if(step < questions.length){
+        document.getElementById("question").innerText = questions[step];
+    } else {
+        document.querySelector(".container").innerHTML = `
+            <div style="font-size:80px; background:pink; width:100px; height:100px; margin:auto; border-radius:50%; display:flex; align-items:center; justify-content:center;">🧸</div>
+            <h2 style="color:#ff4d88;">Thank you 💕 Good night 😊</h2>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
